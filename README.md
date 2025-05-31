@@ -138,23 +138,39 @@ Write a C Program to count the total number of words in a given string using do 
 
 ## PROGRAM
 ```
-#include<stdio.h>
-int main()
-{
-    char a[100];
-    int l=0;
-    fgets(a,sizeof(a),stdin);
-    while(a[l]!='\0')
-    {
-        l++;
+#include <stdio.h>
+
+int main() {
+    char str[100];
+    int i = 0, count = 0;
+
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);  
+
+    
+    do {
+        if (str[i] == ' ' || str[i] == '\t') {
+            count++;
+        }
+        i++;
+    } while (str[i] != '\0' && str[i] != '\n');  
+
+    if (i == 1 && (str[0] == '\n' || str[0] == '\0')) {
+        count = 0;
+    } else {
+        count++;  
     }
-    printf("%d",l-1);
+
+    printf("Total number of words: %d\n", count);
+
     return 0;
 }
+
 ```
 ## OUTPUT
 
-![image](https://github.com/user-attachments/assets/807a2db4-5c85-48ce-9249-ef24a1e94b40)
+![Screenshot 2025-05-31 094157](https://github.com/user-attachments/assets/f5ce9998-f34a-4815-accf-d623146c4e32)
+
 
 
 
@@ -187,30 +203,42 @@ Step 8: End the program.
 
 ## PROGRAM
 ```
-#include<stdio.h>
-#include<string.h>
-int main()
-{
-    char str[10];
-    char srt[10];
-    scanf("%s",str);
-    scanf("%s",srt);
-    int s = strcmp(str,srt);
-    if(s==0)
-    {
-        printf("strings are same");
+#include <stdio.h>
+
+int main() {
+    char c1[100], c2[100];
+    int i = 0, flag = 0;
+
+    printf("Enter the first string: ");
+    scanf("%[^\n]", c1); 
+
+    getchar(); 
+
+    printf("Enter the second string: ");
+    scanf("%s", c2); 
+
+    while (c1[i] != '\0' || c2[i] != '\0') {
+        if (c1[i] != c2[i]) {
+            flag = 1;
+            break;
+        }
+        i++;
     }
+
+    if (flag == 0)
+        printf("Strings are same.\n");
     else
-    {
-        printf("strings are not same");
-    }
+        printf("Strings are not same.\n");
+
     return 0;
 }
+
 ```
 
 ## OUTPUT
  
-![image](https://github.com/user-attachments/assets/53786f1a-9b8b-4bf1-9b43-c7ee34174175)
+![Screenshot 2025-05-31 094437](https://github.com/user-attachments/assets/190f036d-08ee-43a8-9dac-bb59eebc5b67)
+
 
 ## RESULT
 Thus the C Program to compare two strings without using strcmp() has been executed successfully.

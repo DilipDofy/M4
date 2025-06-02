@@ -59,9 +59,9 @@ Write a C Program to check whether the two numbers are equal or not using simple
 #include<stdio.h>
 int main()
 {
-    int a,b;
-    scanf("%d%d",&a,&b);
-    if(a==b)
+    int x,y;
+    scanf("%d%d",&x,&y);
+    if(x==y)
     {
         printf("X is equal to Y");
     }
@@ -215,7 +215,7 @@ int main() {
     getchar(); 
 
     printf("Enter the second string: ");
-    scanf("%s", c2); 
+    scanf("%[^\n]", c2); 
 
     while (c1[i] != '\0' || c2[i] != '\0') {
         if (c1[i] != c2[i]) {
